@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafff yaaa, Sayanggg 😔❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #121212;
+            padding: 50px;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            animation: fadeIn 2s ease-in-out;
+            width: 80%;
+            max-width: 400px;
+            margin: auto;
+            word-wrap: break-word;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #ff6b6b;
+            font-size: 26px;
+        }
+
+        #message {
+            font-size: 18px;
+            color: white;
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+            overflow-wrap: break-word;
+            white-space: normal;
+            opacity: 0;
+            animation: fadeText 2s forwards 1s;
+        }
+
+        .love-btn {
+            background-color: #ff4757;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .love-btn:hover {
+            background-color: #e84118;
+            transform: scale(1.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .reply-btn {
+            margin-top: 20px;
+            background-color: #2ed573;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .reply-btn:hover {
+            background-color: #1eaa55;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 30px;
+            animation: floatUp 3s infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp45" type="audio/mpeg">
+    </audio>
+
+    <canvas class="rain"></canvas>
+
+    <div class="container">
+        <h1>Maaff yaa, Sayanggg 😔❤️</h1>
+        <p id="message"></p>
+        <br>
+        <button class="love-btn" onclick="showLove()">Klik ini kalau kamuuu masih sayanggg akuu🥺</button>
+        <br>
+        <a id="reply-btn" class="reply-btn hidden" href="https://wa.me/6283137555611?text=Ulululu iyaaaa bayiii besall kuu%20dahhh kuu%20maafinn kokkk%20🥺❤️" target="_blank">Aku Maafin Kamu ❤️</a>
+    </div>
+
+    <script>
+        let text = "sayangggg maafinn kemarin sifat kuu yg sepertii ituu  yg sebelumn niatt nyaa baguss ehh malah berujung bertengkar karena terlalu berlebihan. Terus kemarin jugaa hari di mana yg menyenangkan buat sayanggg menjadi hari yg paling menyedihkann heheee...sebenernyaa masi panjangg yg mauu ku bilang tpii nnti tetap ku lanjut di wa kokk dann sengajaa buat seperti inii yaaa karena biarr sayangg liatt niat kuu klo sayaa bener benerr berusaha minta maaff, emm biar lebih menarik juga sii, lopppp youuuuuu buat sayangggg🥺";
+      let i = 0; 
+        function typeText() {
+            if (i < text.length) {
+                document.getElementById("message").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeText, 50);
+            } else {
+                document.getElementById("message").style.borderRight = "none";
+            }
+        }
+
+        typeText();
+
+        function showLove() {
+            document.getElementById("bg-music").play();
+            document.getElementById("reply-btn").classList.remove("hidden");
+
+            for (let i = 0; i < 20; i++) {
+                createHeart();
+            }
+        }
+
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "90vh";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+    
+    </script>
+</body>
+</html>
